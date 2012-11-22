@@ -1,0 +1,27 @@
+---
+layout: base
+baseurl: http://mysqludf.github.com
+---
+<div id="wrapper" class="grid clearfix">
+  <div class="grid-1">
+    {% include main.html %}
+    
+    <div id="reposmenu">
+      <h1>UDF libraries</h1>
+      <ul id="repos"></ul>
+    </div>
+  </div>
+
+  <div class="grid-3 box">
+    <div id="content">
+      {{ content }}
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  (function ($, undefined) {
+    addRepos();
+    setMembers();
+  })(jQuery);
+</script>
