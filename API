@@ -1,3 +1,0 @@
-
-lib_mysqludf_skeleton_info()
-	Output the library version.
