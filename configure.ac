@@ -4,7 +4,7 @@ AC_INIT(lib_mysqludf_skeleton,0.0.1,you@example.com)
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(config)
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE(foreign)
 
 AC_PROG_CC
 AC_PROG_CXX
