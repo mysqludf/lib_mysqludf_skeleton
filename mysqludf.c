@@ -58,7 +58,8 @@ void **ptr_calloc(size_t nelem, size_t elsize)
  */
 void ptr_free(void **ptr)
 {
-	for (int i=0; i < *((int *)ptr - 1); i++) {
+    int i;
+	for (i=0; i < *((int *)ptr - 1); i++) {
 		if (ptr[i]) free(ptr[i]);
 	}
 
@@ -71,8 +72,9 @@ void ptr_free(void **ptr)
 int strncmp_caseins(char *str1, char *str2, size_t num)
 {
 	char c1, c2;
+    int i;
 
-	for (int i=0; i<num; i++) {
+	for (i=0; i<num; i++) {
 		c1 = (str1[i] >= 65 && str1[i] <= 90) ? str1[i] + 32 : str1[i]; /* Change to lower case */
 		c2 = (str2[i] >= 65 && str2[i] <= 90) ? str2[i] + 32 : str2[i]; /* Change to lower case */
 
@@ -87,7 +89,9 @@ int strncmp_caseins(char *str1, char *str2, size_t num)
  */
 int charinstr(char *str, char c, size_t num)
 {
-	for (int i=0; i<num && str[i]; i++) {
+    int i;
+
+	for (i=0; i<num && str[i]; i++) {
 		if (str[i] == c) return i;
 	}
 
@@ -100,10 +104,10 @@ int charinstr(char *str, char c, size_t num)
 char *copy_argname(char *att, unsigned long length)
 {
 	char *attcl = att;
-	char *str;
+	char *str, *ptr;
 	char quoting = 0;
 
-	for (char *ptr=att; ptr<att+length; ptr++) {
+	for (ptr=att; ptr<att+length; ptr++) {
 		if (*ptr == '`') quoting != quoting;
 		 else if (!quoting && *ptr == '.') attcl = ptr+1;
 	}

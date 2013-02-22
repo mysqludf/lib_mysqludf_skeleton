@@ -1,15 +1,16 @@
 AC_PREREQ(2.59)
 
 AC_INIT(lib_mysqludf_skeleton,0.0.1,you@example.com)
+
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(config)
 AM_CONFIG_HEADER(config.h)
+
 AM_INIT_AUTOMAKE(foreign)
 
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
 AC_PROG_CC
-AC_PROG_CXX
-AC_PROG_LIBTOOL
-AC_SUBST(LIBTOOL)dnl
 
 m4_include(config/ax_lib_mysql.m4)
 AX_LIB_MYSQL(,,AC_MSG_ERROR("Can't find mysql library" ))
@@ -26,4 +27,6 @@ AX_MYSQL_BIN
 AC_C_CONST
 AC_TYPE_SIZE_T
 AC_CHECK_HEADERS(limits.h syslimits.h)
-AC_OUTPUT(Makefile)
+
+AC_OUTPUT([ Makefile test/Makefile ])
+

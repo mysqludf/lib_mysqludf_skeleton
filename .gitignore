@@ -9,7 +9,9 @@ config.h.in
 config.log
 config.status
 configure
-gh-pages/
 libtool
 stamp-h1
-
+.libs
+*.la
+*.lo
+*.o
