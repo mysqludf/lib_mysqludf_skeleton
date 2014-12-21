@@ -32,7 +32,18 @@ extern "C" {
 #endif
 	DLLEXP my_bool lib_mysqludf_skeleton_info_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 	DLLEXP void lib_mysqludf_skeleton_info_deinit(UDF_INIT *initid);
+	/* For functions that return STRING or DECIMAL */ 
 	DLLEXP char *lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
+
+	/* For functions that return REAL */
+	/* DLLEXP double lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *error); */
+	/* For functions that return INTEGER */
+	/* DLLEXP longlong lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *error); */
+
+	/* If you are doing an Aggregate function you'll need these too */
+	/* DLLEXP void lib_mysqludf_skeleton_info_clear( UDF_INIT* initid, char* is_null, char* is_error ); */
+	/* DLLEXP void lib_mysqludf_skeleton_info_add( UDF_INIT* initid, UDF_ARGS* args, char* is_null, char* is_error ); */
+
 #ifdef	__cplusplus
 }
 #endif
@@ -52,6 +63,12 @@ void lib_mysqludf_skeleton_info_deinit(UDF_INIT *initid)
 {
 }
 
+/* For functions that return REAL */
+/* double lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *error) */
+/* For functions that return INTEGER */
+/* longlong lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char *is_null, char *error) */
+
+/* For functions that return STRING or DECIMAL */ 
 char* lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char* result, unsigned long* length,	char *is_null, char *error)
 {
 	strcpy(result, PACKAGE_STRING);
