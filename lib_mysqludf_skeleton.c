@@ -30,7 +30,7 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-	DLLEXP my_bool lib_mysqludf_skeleton_info_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
+	DLLEXP int lib_mysqludf_skeleton_info_init(UDF_INIT *initid, UDF_ARGS *args, char *message);
 	DLLEXP void lib_mysqludf_skeleton_info_deinit(UDF_INIT *initid);
 	/* For functions that return STRING or DECIMAL */ 
 	DLLEXP char *lib_mysqludf_skeleton_info(UDF_INIT *initid, UDF_ARGS *args, char *result, unsigned long *length, char *is_null, char *error);
@@ -54,7 +54,7 @@ extern "C" {
  * lib_mysqludf_skeleton_info()
  */
 
-my_bool lib_mysqludf_skeleton_info_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
+int lib_mysqludf_skeleton_info_init(UDF_INIT *initid, UDF_ARGS *args, char *message)
 {
 	return 0;
 }
